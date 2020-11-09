@@ -24,11 +24,32 @@ module.exports = {
         });
     },
 
-    edit: (request, response) => {
-
+    remove: (request, response) => {
+        const idParam = request.params.id;
+        accountsCollection.findByIdAndDelete(idParam, (error, account) => {
+            if(error) {
+                return response.status(500).send(error);
+            } else if(account) {
+                return response.status(200).send('Conta apagada!');
+            }
+            return response.sendStatus(404);
+        });
     },
 
-    remove: (request, response) => {
+    edit: (request, response) => {
+        const idParam = request.params.id;
+        const body = request.body;
+        const options = { new: true };
 
+        accountsCollection.findByIdAndUpdate(
+            idParam, body, options, (error, account) => {
+                if(error) {
+                    return response.status(500).send(error);
+                } else if(account) {
+                    return response.status(200).send(account);
+                }
+                return response.sendStatus(404);
+            }
+        );
     }
 };

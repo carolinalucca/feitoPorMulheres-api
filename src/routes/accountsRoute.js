@@ -4,5 +4,7 @@ const controller = require('../controllers/accountController');
 
 router.get('/', controller.get);
 router.post('/create', controller.add);
+router.delete('/remove/:id', controller.remove);
+router.patch('/edit/:id', controller.edit);
 
 module.exports = router;
