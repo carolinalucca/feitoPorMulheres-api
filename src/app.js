@@ -16,5 +16,6 @@ const accounts = require('./routes/accountsRoute');
 
 app.use('/', index);
 app.use('/accounts', accounts);
+app.use('/offers', offers);
   
 module.exports = app;
