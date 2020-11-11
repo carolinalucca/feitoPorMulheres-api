@@ -13,6 +13,7 @@ app.use(
 
 const index = require('./routes/index');
 const accounts = require('./routes/accountsRoute');
+const offers = require('./routes/offersRoute');
 
 app.use('/', index);
 app.use('/accounts', accounts);
