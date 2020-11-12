@@ -1,10 +1,8 @@
-const express = require('express');
-const router = express.Router();
 const controller = require('../controllers/accountController');
 
-router.get('/', controller.get);
-router.post('/create', controller.add);
-router.delete('/remove/:id', controller.remove);
-router.patch('/edit/:id', controller.edit);
-
-module.exports = router;
+module.exports = app => {
+    app.route('/accounts').get(controller.get);
+    app.route('/accounts/create').post(controller.add);
+    app.route('/accounts/remove/:id').delete(controller.remove);
+    app.route('/accounts/edit/:id').patch(controller.edit);
+};
