@@ -7,6 +7,6 @@ passport.use(
         passwordField: 'senha',
         session: false
     }, (email, senha, done) => {
-        done(null, {email: 'teste'});
+        done(null, {id: '123'});
     })
 );
