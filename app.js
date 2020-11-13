@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const database = require('./src/models/database');
 database.connect();
 
+const { auth } = require('./src/routes')
+
 app.use(
   bodyParser.urlencoded({
     extended: true

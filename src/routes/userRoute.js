@@ -1,3 +1,8 @@
+const controller = require('../controllers/userController');
+const passport = require('passport');
+
 module.exports = app => {
-    app.route('/login').get((request, response) => {return response.send('Teste')});
+    app.route('/login').post(
+        passport.authenticate('local', { session: false }), 
+        controller.login);
 };
